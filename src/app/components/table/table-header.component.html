@@ -1,0 +1,12 @@
+@for (item of tableHeaders$ | async; track item.key) {
+@if(item.key === ITableInternalKeys.ID){
+<div class="flex justify-center items-center min-w-[32px]"
+     [ngStyle]="{width:getColWidth(item.key)}"><input type="checkbox" /></div>
+
+}@else {
+<div class="flex items-center basis-auto min-w-[100px]"
+     [ngStyle]="{width:getColWidth(item.key)}"
+     [title]="item.headerTooltip">{{item.headerLabel}}</div>
+}
+
+}

@@ -1,0 +1,16 @@
+@for (row of tableRows$ | async ; track row.trackById) {
+<div class="flex items-center min-h-[48px]"
+     [ngClass]="{'bg-[#fbfcff]':!row.__isEven}">
+     @for (col of row.colCells; track col.trackById) {
+     @if(col.key === ITableInternalKeys.ID){
+     <div class="flex items-center justify-center min-w-[32px]"
+          [ngStyle]="{width:getColWidth(col.key)}"><input type="checkbox" /></div>
+
+     }@else {
+     <div class="flex items-center  min-w-[100px]"
+          [ngStyle]="{width:getColWidth(col.key)}">{{col.label}}</div>
+     }
+
+     }
+</div>
+}
